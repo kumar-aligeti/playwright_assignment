@@ -1,8 +1,13 @@
-image: gitpod/workspace-full
+image: mcr.microsoft.com/playwright/python:v1.42.0-focal
 
 tasks:
-  - init: pip install -r requirements.txt
+  - name: Install dependencies
+    init: pip install -r requirements.txt
     command: pytest
+
+ports:
+  - port: 9222
+    onOpen: ignore
 
 vscode:
   extensions:
